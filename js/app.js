@@ -68367,7 +68367,7 @@
       }
       init() {
         this.scene.events.on("update", this.update, this),
-          this.scene.events.on("start", this.move, this);
+          this.scene.events.on("start_game", this.move, this);
       }
       update(t, e) {
         this.y > 1100 && this.alive_status && this.setAlive(!1),
@@ -68469,7 +68469,7 @@
       }
       init() {
         this.scene.events.on("update", this.update, this),
-          this.scene.events.on("start", this.move, this);
+          this.scene.events.on("start_game", this.move, this);
       }
       update(t, e) {
         this.y > 1200 && this.alive_status && this.setAlive(!1),
@@ -68561,7 +68561,7 @@
       }
       init() {
         this.scene.events.on("update", this.update, this),
-          this.scene.events.on("start", this.move, this);
+          this.scene.events.on("start_game", this.move, this);
       }
       update(t, e) {
         this.y > 1500 && this.alive_status && this.setAlive(!1),
@@ -68710,7 +68710,7 @@
       }
       init() {
         this.scene.events.on("update", this.update, this),
-          this.scene.events.on("start", this.move, this);
+          this.scene.events.on("start_game", this.move, this);
       }
       update(t, e) {
         this.y > 1200 && this.alive_status && this.setAlive(!1),
@@ -68741,7 +68741,7 @@
       init() {
         this.scene.add.existing(this),
           this.scene.events.on("update", this.update, this),
-          this.scene.events.on("start", this.move, this);
+          this.scene.events.on("start_game", this.move, this);
       }
       update(t, e) {
         this.y > 3959 && !this.destroy_flag
@@ -68765,7 +68765,7 @@
           this.scene.children.sendToBack(this);
       }
       move() {
-        console.log("MOVE()"), (this.velocityY = this.scene.game_velocity);
+        this.velocityY = this.scene.game_velocity;
       }
       isDead() {
         return this.y > 2879;
@@ -68779,7 +68779,6 @@
         super(t.physics.world, t),
           (this.scene = t),
           (this.countCreated = 0),
-          console.log("ROOMS"),
           this.createFirstRoom(),
           this.scene.events.on(
             "leave",
@@ -68890,11 +68889,11 @@
           this.scene.physics.add.existing(this),
           (this.body.enable = !0),
           this.init(),
-          (this.alive_status = !0),
-          this.scene.events.on("start", this.move, this);
+          (this.alive_status = !0);
       }
       init() {
-        this.scene.events.on("update", this.update, this);
+        this.scene.events.on("start_game", this.move, this),
+          this.scene.events.on("update", this.update, this);
       }
       update(t, e) {
         this.y > 1200 && this.alive_status && this.setAlive(!1),
@@ -68954,11 +68953,10 @@
           (this.prompt1_flag = !0),
           (this.prompt3_flag = !0),
           (this.prompt5_flag = !0),
-          (this.count_created_scenes = 0),
-          console.log("INIT");
+          (this.count_created_scenes = 0);
       }
       create() {
-        console.log("CREATE"), (this.game_velocity = 0);
+        this.game_velocity = 0;
         new O(this);
         (this.player = new E(this, 960, 840, `player_${this.hero}_1`, {
           playerScale: 0.7,
@@ -68968,11 +68966,11 @@
             .sprite(960, 640, "start")
             .setInteractive()
             .on("pointerdown", () => {
-              console.log("START"),
-                this.player.play("player_animation"),
+              this.player.play("player_animation"),
                 this.createTouch(),
                 (this.game_velocity = 4.5),
-                this.events.emit("start"),
+                this.events.emit("start_game"),
+                this.events.removeAllListeners("start_game"),
                 this.start_button.destroy();
             })),
           (this.left_element = this.add
@@ -69081,8 +69079,7 @@
               }),
               this.hearts--)
             : 1 === this.hearts &&
-              (console.log("DEFEAT________-"),
-              this.tweens.add({
+              (this.tweens.add({
                 targets: this.ui.heart_3,
                 scale: { from: 1, to: 2 },
                 alpha: { from: 1, to: 0 },
@@ -69095,10 +69092,17 @@
                     let n = new t(),
                       s = document.querySelector(`${e} .popup__counter`);
                     n.open(e), (s.innerHTML = i);
-                  })("#attempts", this.score),
-                    e.addEventListener("click", () => {
-                      this.scene.start("Start"), this.scene.remove("Game");
-                    });
+                  })("#attempts", this.score);
+                  const i = () => {
+                    console.log(
+                      this.game.scene.getScene("Start"),
+                      this.game.scene.getScenes()
+                    ),
+                      this.scene.start("Start"),
+                      this.scene.remove("Game"),
+                      e.removeEventListener("click", i);
+                  };
+                  e.addEventListener("click", i);
                 },
               }),
               this.hearts--);
@@ -69243,7 +69247,9 @@
         super("Start"), console.log("StartScene");
       }
       create() {
-        this.createBackground(), this.createCharacters();
+        console.log("StartScene create()"),
+          this.createBackground(),
+          this.createCharacters();
       }
       createBackground() {
         this.add.graphics(0, 0, G, W).fillStyle(15782, 1).fillRect(0, 0, G, W),
@@ -69366,18 +69372,6 @@
                   this.musya_button.setTexture("musya_button");
               }.bind(this)
             ));
-      }
-      createMusic() {
-        (this.main_theme = this.sound.add("main_theme", {
-          mute: !1,
-          volume: 0.2,
-          rate: 1,
-          detune: 0,
-          seek: 0,
-          loop: !0,
-          delay: 0,
-        })),
-          this.main_theme.play();
       }
     }
     i(933);
