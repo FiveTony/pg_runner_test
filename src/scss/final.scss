@@ -1,0 +1,67 @@
+.final-page {
+    background-color: #003DA6;
+}
+
+.section-final {
+    background-image: url('@img/bg-final/bg-desktop-thanks.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0%;
+    background-color: #003DA6;
+    height: 100vh;
+    &__container {
+        @include adaptiveValue("padding-top",
+        54,
+        30);
+    }
+    &__content {
+        max-width: rem(734);
+    }
+    &__description {
+        font-weight: 500;
+        font-size: 1.5vmax;
+        line-height: 48px;
+    }
+    &__title {
+        font-weight: 800;
+        font-size: 2.5vmax;
+        line-height: 67px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (min-width: em(2000)) {
+    .section-final {
+        &__title {
+            font-size: rem(75);
+        }
+        &__description {
+            font-size: rem(33);
+        }
+    }
+}
+
+@media (max-width:$tablet) {
+    .section-final {
+        &__title {
+            line-height: 37px;
+        }
+        &__description {
+            line-height: 29px;
+        }
+    }
+}
+
+@media (max-width:$mobileSmall) {
+    .section-final {
+        background-image: url('@img/bg-final/bg-mobile.png');
+        height: 611px;
+    }
+    .final-page {
+        background-image: url('@img/bg-land/mobile-floor.png');
+        background-repeat: repeat;
+        background-size: 164%;
+        background-position: 0;
+        background-color: #B38E5D;
+    }
+}

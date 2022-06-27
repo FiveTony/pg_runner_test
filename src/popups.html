@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{ "title":"Popups" })
+
+<body>
+    <div class="wrapper">
+        <main class="popup-page">
+            <div class="section-popup">
+                <div class="section-popup__container">
+                    <button class="btn yellow-bg" data-popup="#attempts">Попытки остались</button>
+                    <br>
+                    <button class="btn yellow-bg" data-popup="#not-attempts">Попыток не осталось</button>
+                    <br>
+                    <!-- <button class="btn yellow-bg" data-popup="#get-prize">Получить приз</button> -->
+                </div>
+            </div>
+        </main>
+    </div>
+    @@include('html/_popup-attempts.htm', {}) @@include('html/_popup-not-attempts.htm', {}) @@include('html/_popup-get-prize.htm', {}) @@include('html/_js.htm',{})
+</body>
+
+</html>

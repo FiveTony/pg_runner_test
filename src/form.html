@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{ "title":"Form Screen" })
+
+<body>
+    <div class="wrapper">
+        <main class="form-page">
+            <section class="section-form">
+                <div class="section-form__container">
+                    <div class="section-form__content">
+                        <a href="https://pgbonus.ru" target="_blank">
+                            <img src="@img/logos/logo.png" class="picture-logo" alt="До 100% Кэшбэк PGBONUS.RU">
+                        </a>
+                        <h2 class="section-form__title">Осталось совсем немного!</h2>
+                        <p class="section-form__description">Отправим приз на вашу почту 🎁</p>
+                    </div>
+                    <form action="#" class="form">
+                        <div class="form__content">
+                            <label class="form__label">Имя <input class="form__input" type="text" value="" placeholder="Иванов Иван Иванович"></label>
+                            <div class="form__row">
+                                <label class="form__label">Email <input class="form__input" type="text" value="" placeholder="email@example.ru"></label>
+                                <label class="form__label">Номер телефона <input class="form__input" type="text" value="" placeholder="+7 (|      ) __–__–__"></label>
+                            </div>
+                            <div class="form__chbxes">
+                                <input type="checkbox" id="personal" name="" value="personal" class="custom-checkbox">
+                                <label for="personal" class="form__label-cbx"></label>
+                                <span class="form__label-cbx form__label-text"> Я&nbsp;подтверждаю, что мне уже исполнилось 18&nbsp;лет. Я&nbsp;ознакомился <span class="nowrap">(-лась) с&nbsp;</span> <a target="_blank" href="https://termsandconditions.pg.com/ru-ru"
+                                    class="link">Условиями и&nbsp;положениями</a> использования этого сайта, а&nbsp;также с&nbsp;<a target="_blank" href="https://privacypolicy.pg.com/ru" class="link">Примечанием о&nbsp;конфиденциальности</a> и&nbsp;принимаю
+                                их&nbsp;условия, а&nbsp;также даю согласие на&nbsp;обработку персональных данных в&nbsp;соответствии с&nbsp;Примечанием о&nbsp;конфиденциальности и&nbsp;согласен(-а) на&nbsp;получение рекламной рассылки о&nbsp;продукции
+                                и&nbsp;акциях компании <a target="_blank" href="https://www.procterandgamble.ru/brendy-i-produktsiya" class="link">Procter &amp;&nbsp;Gamble</a>.</span>
+                            </div>
+                            <button type="button" class="btn-form yellow-bg form__button">Получить приз!</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    @@include('html/_js.htm',{})
+</body>
+
+</html>

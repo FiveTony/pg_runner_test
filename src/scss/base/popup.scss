@@ -1,0 +1,137 @@
+body::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease 0s;
+    pointer-events: none;
+    z-index: 149;
+}
+
+body.popup-show::after {
+    opacity: 1;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 30px 10px;
+    transition: visibility 0.8s ease 0s;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.popup_show {
+    z-index: 150;
+    visibility: visible;
+    overflow: auto;
+    pointer-events: auto;
+}
+
+.popup_show .popup__content {
+    visibility: visible;
+    transform: scale(1);
+}
+
+.popup__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup__content {
+    background-image: url('@img/popup/banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: $blueColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 340px;
+    visibility: hidden;
+    transform: scale(0);
+    transition: transform 0.3s ease 0s;
+    background-color: #eee;
+    padding: 20px 20px 30px 20px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 50px;
+    .lock & {
+        visibility: visible;
+    }
+}
+
+.popup {
+    &__description {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+        margin-bottom: 33px;
+    }
+    &__logo {
+        width: 100%;
+        background: #02358D;
+        border-radius: 40px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: rem(23);
+    }
+    &__pic {
+        max-width: rem(107);
+    }
+    &__title,
+    &__counter {
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 39px;
+        text-align: center;
+        color: #FFFFFF;
+        margin-bottom: 15px;
+    }
+    &__counter {
+        display: block;
+    }
+    &__btn-group {
+        display: flex;
+        gap: 15px;
+    }
+    &__text {
+        max-width: rem(404);
+    }
+}
+
+@media (max-width:$mobileSmall) {
+    .popup {
+        &__title {
+            font-size: rem(25);
+            line-height: math.div(30, 25);
+        }
+        &__description {
+            font-size: rem(18);
+            line-height: math.div(22, 18);
+        }
+        &__btn-group {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &__text {
+            max-width: 100%;
+        }
+    }
+}

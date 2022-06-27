@@ -1,0 +1,217 @@
+.section-landing {
+    background-image: url('@img/bg-land/bg-desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #003DA6;
+    min-height: 1080px;
+    @media (min-width: $mobileSmall) {
+        height: 100vh;
+    }
+    &__btn {
+        max-width: rem(397);
+        position: relative;
+        &::after {
+            content: url('@img/icons/ico-burger.svg');
+            position: absolute;
+            right: 20px;
+            top: 4px;
+            bottom: 0;
+        }
+    }
+    &__container {
+        padding-top: rem(150);
+        @include adaptiveValue("padding-top",
+        130,
+        15,
+        1920,
+        320);
+    }
+    &__content {
+        max-width: rem(831);
+        @include adaptiveValue("max-width",
+        831,
+        340,
+        1920,
+        479.98);
+        display: flex;
+        flex-direction: column;
+        gap: 27px;
+    }
+}
+
+.section-start {
+    background-image: url('@img/bg-start/bg-desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #003DA6;
+    min-height: 1080px;
+    @media (min-width: $mobileSmall) {
+        height: 100vh;
+    }
+    &__container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        @include adaptiveValue("padding-top",
+        53,
+        20);
+    }
+    &__content {
+        flex: 0 1 53%;
+    }
+    &__title {
+        margin-bottom: 18px;
+    }
+    &__btn {
+        position: relative;
+        &::after {
+            content: url('@img/icons/btn-decor-right.svg');
+            position: absolute;
+            right: -30px;
+            bottom: -40px;
+        }
+        &::before {
+            content: url('@img/icons/btn-decor-left.svg');
+            position: absolute;
+            left: -20px;
+            top: -30px;
+        }
+    }
+}
+
+.section-landing-desktop {
+    display: none;
+}
+
+@media (min-width: $xlgPc) {
+    .section-start {
+        &__content {
+            flex: 0 0 65%;
+        }
+    }
+}
+
+@media (min-width:$tablet) and (max-width: 1920px) {
+    .section-landing {
+        display: none;
+    }
+    .landing-page {
+        background-image: url('@img/bg-land/floor.png');
+        background-repeat: repeat;
+        background-size: contain;
+        background-position: center center;
+        background-color: #B38E5D;
+    }
+    .section-landing-desktop {
+        display: block;
+        position: relative;
+        &__rules {
+            position: absolute;
+            top: 67%;
+            left: 11%;
+        }
+        &__pic {
+            max-width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// @media (max-width: em(1581)) {
+//     .section-start {
+//         background-image: url('@img/bg-start/bg-tablet.png');
+//     }
+// }
+@media (min-width:$tablet) and (max-width:1200px) and (min-height: 900px) {
+    .section-landing {
+        background-position: 62%;
+        &__content {
+            padding-top: 40px;
+        }
+    }
+}
+
+@media (min-width: $mobileSmall) and (max-width: $tablet) {
+    .section-landing {
+        background-image: url('@img/bg-land/bg-tablet.png');
+        background-position: 60%;
+        min-height: 1080px;
+    }
+}
+
+@media (max-height:$tablet) and (min-width: $tablet) {
+    .section-landing,
+    .section-start {
+        min-height: 568px;
+    }
+    .section-start {
+        &__container {
+            padding-top: 20px;
+        }
+    }
+}
+
+@media (max-width:$tablet) {
+    .section-landing {
+        &__btn {
+            min-height: 16px;
+            &::after {
+                display: none;
+            }
+        }
+        &__rules {
+            color: $mainColor;
+        }
+    }
+    .section-start {
+        background-size: cover;
+        background-position: 75%;
+    }
+}
+
+@media (max-width:$mobile) {
+    .section-start {
+        &__container {
+            flex-direction: column;
+            gap: 60px;
+        }
+    }
+}
+
+@media (max-width:$mobileSmall) {
+    .section-landing {
+        background-image: url('@img/bg-land/bg-mobile.png');
+        min-height: 700px;
+        &__content {
+            gap: 17px;
+        }
+        &__btn {
+            max-width: 240px;
+        }
+    }
+    .landing-page {
+        background-image: url('@img/bg-land/mobile-floor.png');
+        background-repeat: repeat;
+        background-size: 164%;
+        background-position: 0;
+        background-color: #B38E5D;
+    }
+    .section-start {
+        background-image: url('@img/bg-start/bg-mobile.png');
+        background-position: 39%;
+        min-height: 820px;
+        &__btn {
+            margin-top: 20px;
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+        &__container {
+            gap: 0;
+        }
+    }
+}

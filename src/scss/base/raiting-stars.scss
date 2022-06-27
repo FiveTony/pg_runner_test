@@ -1,0 +1,41 @@
+.rating {
+    &__stars {
+        position: relative;
+        display: block;
+        float: left;
+        height: 20px;
+        width: 105px;
+        background-image: url("@img/icons/stars.png");
+        background-position: 0 0;
+        background-repeat: repeat-x;
+        margin-right: 5px;
+    }
+    &__on {
+        width: 88%; // Свойство для отображения активных звезд 
+        height: 20px;
+        background-image: url("@img/icons/stars.png");
+        background-position: 0 -20px;
+    }
+    &__live {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &__star {
+        display: block;
+        float: left;
+        cursor: pointer;
+        width: 21px;
+        height: 20px;
+        background-image: url("@img/icons/stars.png");
+        background-repeat: no-repeat;
+        background-position: 0 -20px;
+        &:hover~& {
+            background-position: 0 0px;
+        }
+    }
+}

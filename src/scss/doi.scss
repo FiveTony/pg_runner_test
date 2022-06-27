@@ -1,0 +1,95 @@
+.section-doi {
+    background-image: url('@img/bg-doi/bg-desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 5%;
+    background-color: $blueColor;
+    min-height: 1080px;
+    @media (min-width: $mobileSmall) {
+        height: 100vh;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        @include adaptiveValue("gap",
+        52,
+        22);
+        max-width: rem(750);
+    }
+    &__container {
+        display: flex;
+        justify-content: center;
+        padding-top: 77px;
+    }
+}
+
+.section-doi-desktop {
+    display: none;
+}
+
+@media (min-width:$tablet) and (max-width: 1920px) {
+    .section-doi {
+        display: none;
+    }
+    .doi-page {
+        background-image: url('@img/bg-land/floor.png');
+        background-repeat: repeat;
+        background-size: contain;
+        background-position: center center;
+        background-color: #B38E5D;
+    }
+    .section-doi-desktop {
+        display: block;
+        &__pic {
+            max-width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media (max-width: 1285px) {
+    .section-doi {
+        background-image: url('@img/bg-doi/bg-tablet.png');
+        background-position: 0%;
+        &__container {
+            padding-top: 20px !important;
+        }
+        &__content {
+            gap: 25px;
+        }
+        &__logo {
+            display: none;
+        }
+    }
+}
+
+@media (max-height:$tablet) and (min-width: $tablet) {
+    .section-doi {
+        min-height: 568px;
+    }
+}
+
+@media (min-width:$tablet) {
+    .section-doi {
+        &__container {
+            padding-left: 180px;
+        }
+    }
+}
+
+@media (max-width:$mobileSmall) {
+    .section-doi {
+        background-image: url('@img/bg-doi/bg-mobile.png');
+        min-height: 720px;
+        &__content {
+            gap: 25px;
+        }
+    }
+    .doi-page {
+        background-image: url('@img/bg-land/mobile-floor.png');
+        background-repeat: repeat;
+        background-size: 164%;
+        background-position: 0;
+        background-color: #B38E5D;
+    }
+}

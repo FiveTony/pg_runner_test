@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{ "title":"Главная" })
+<body>
+    <div class="wrapper">
+        <main class="landing-page" data-render-scene>
+            <section class="section-landing">
+                <div class="section-landing__container">
+                    <div class="section-landing__content">
+                        <a href="https://pgbonus.ru" target="_blank">
+                            <img src="@img/logos/logo.png" class="picture-logo" alt="До 100% Кэшбэк PGBONUS.RU">
+                        </a>
+                        <h1 class="h1">Уборка — это <br> весело! Не верите?</h1>
+                        <p class="description">Испытайте себя в&nbsp;увлекательной игре &laquo;Бежим за&nbsp;кэшбэком&raquo; и&nbsp;получите призы от&nbsp;PGbonus!</p>
+                        <p class="description">
+                            Пусть в&nbsp;доме станет чисто и&nbsp;комфортно 😊
+                        </p>
+                        <button class="btn yellow-bg section-landing__btn" data-start-play>Играть</button>
+                        <a href="rules.pdf" target="_blank" class="rules">Правила и условия акции</a>
+                    </div>
+                </div>
+            </section>
+            <div class="section-landing-desktop" data-start-play>
+                <img class="section-landing-desktop__pic" src="@img/bg-land/desktop.png" alt="Уборка — это весело! Не верите? Испытайте себя в увлекательной игре «Бежим за кэшбэком» и получайте призы от PGbonus! Пусть в доме станет чисто и комфортно. Кнопка - играть!">
+                <a href="rules.pdf" target="_blank" class="rules section-landing-desktop__rules">Правила и условия акции</a>
+            </div>
+        </main>
+    </div>
+    <link href="src/assets/styles/fonts.css"/>
+
+    @@include('html/_popup-attempts.htm', {}) @@include('html/_popup-not-attempts.htm', {}) @@include('html/_js.htm',{})
+
+</body>
+
+</html>

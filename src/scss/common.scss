@@ -1,0 +1,115 @@
+// Заголовки, общие БЄМ блоки и проче...
+.remove-scroll {
+    overflow: hidden;
+}
+
+.hidden {
+    display: none
+}
+
+.picture-logo {
+    @include adaptiveValue("max-width", 170, 114);
+}
+
+.btn {
+    padding: 15px 55px;
+    min-height: 76px;
+    font-size: rem(22);
+    @include adaptiveValue("font-size", 22, 13, 2150, 320);
+    @include adaptiveValue("line-height", 26, 20, 2150, 320);
+}
+
+.btn-form {
+    font-size: rem(14);
+    padding: 15px 30px;
+}
+
+.btn-form,
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 50px;
+    color: $blackColor;
+}
+
+.white-bg {
+    background-color: #fff;
+}
+
+.yellow-bg {
+    background-color: #FDDA00;
+}
+
+.description {
+    font-weight: 500;
+    font-size: rem(30);
+    line-height: math.div(48, 30);
+    @include adaptiveValue("font-size", 22, 12, 2150, 320);
+    @include adaptiveValue("line-height", 27, 18, 2150, 320);
+}
+
+.h1 {
+    font-weight: 800;
+    font-size: rem(75);
+    line-height: math.div(87, 75);
+    @include adaptiveValue("font-size", 60, 20, 2150, 320);
+    @include adaptiveValue("line-height", 70, 27, 2150, 320);
+}
+
+.rules {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 14, 10);
+    @include adaptiveValue("line-height", 20, 16);
+    text-decoration-line: underline !important;
+    color: #6AD2FF;
+}
+
+.link {
+    text-decoration: underline !important;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+@media (max-width:$tablet) {
+    .btn {
+        padding: 12px 32px;
+        min-height: 50px;
+    }
+    .description {
+        font-size: rem(20);
+        line-height: math.div(27, 20);
+    }
+}
+
+@media (max-height:$tablet) and (min-width: $tablet) {
+    .h1 {
+        font-size: rem(40);
+    }
+    .description {
+        font-size: rem(22);
+        line-height: math.div(20, 16);
+    }
+}
+
+@media (max-width:$mobileSmall) {
+    .picture-logo {
+        display: none;
+    }
+    .doi-page {
+        .description {
+            font-size: rem(16);
+            line-height: math.div(22, 16);
+        }
+    }
+    .landing-page {
+        .description {
+            font-size: rem(14);
+            line-height: math.div(20, 16);
+        }
+    }
+}
