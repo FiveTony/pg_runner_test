@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Popups</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20220627161909">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="popup-page">
+			<div class="section-popup">
+				<div class="section-popup__container">
+					<button class="btn yellow-bg" data-popup="#attempts">Попытки остались</button>
+					<br>
+					<button class="btn yellow-bg" data-popup="#not-attempts">Попыток не осталось</button>
+					<br>
+					<!-- <button class="btn yellow-bg" data-popup="#get-prize">Получить приз</button> -->
+				</div>
+			</div>
+		</main>
+	</div>
+	<div id="attempts" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__logo">
+					<a href="https://pgbonus.ru" target="_blank"><picture><source srcset="img/logos/logo-popup.webp" type="image/webp"><img class="popup__pic" src="img/logos/logo-popup.png" alt="Логотип до 100% кэшбэка PGBONUS.RU"></picture></a>
+				</div>
+				<div class="popup__text">
+					<h2 class="popup__title">Поздравляем, ваш счет:</h2>
+					<span class="popup__counter">ХХХ</span>
+					<p class="popup__description">Хотите сыграть ещё раз?</p>
+				</div>
+				<div class="popup__btn-group">
+					<button class="btn white-bg" data-close restart-game>Да!</button>
+					<a href="form.html" class="btn yellow-bg">Хочу забрать приз!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="not-attempts" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__logo">
+					<a href="https://pgbonus.ru" target="_blank"><picture><source srcset="img/logos/logo-popup.webp" type="image/webp"><img class="popup__pic" src="img/logos/logo-popup.png" alt="Логотип до 100% кэшбэка PGBONUS.RU"></picture></a>
+				</div>
+				<div class="popup__text">
+					<h2 class="popup__title">Поздравляем, ваш счет:</h2>
+					<span class="popup__counter">ХХХ</span>
+					<p class="popup__description">Пришло время получать подарки!</p>
+				</div>
+				<div class="popup__btn-group">
+					<a href="form.html" class="btn yellow-bg">Получить приз</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="get-prize" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__logo">
+					<a href="https://pgbonus.ru" target="_blank"><picture><source srcset="img/logos/logo-popup.webp" type="image/webp"><img class="popup__pic" src="img/logos/logo-popup.png" alt="Логотип до 100% кэшбэка PGBONUS.RU"></picture></a>
+				</div>
+				<div class="popup__text">
+					<h2 class="popup__title">Вы уже получили приз!</h2>
+					<p class="popup__description">Но можете поиграть ещё — ради удовольствия 😊</p>
+				</div>
+				<div class="popup__btn-group">
+					<button class="btn yellow-bg">Играть!</button>
+					<button class="btn white-bg">Выйти</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20220627161909"></script>
+</body>
+
+</html>
