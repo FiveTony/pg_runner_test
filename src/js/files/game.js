@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import BootScene from "@assets/scripts/scenes/BootScene";
 import PreloadScene from "@assets/scripts/scenes/PreloadScene";
-import StartScene from "@assets/scripts/scenes/StartScene";
+// import StartScene from "@assets/scripts/scenes/StartScene";
 // import GameScene from "@assets/scripts/scenes/GameScene";
 import { Popup } from "@js/libs/popup.js";
 import WebFont from '../../../node_modules/webfontloader/webfontloader.js'
@@ -10,7 +10,7 @@ import openFullscreen from "./fullscreen.js";
 var scenes = [
     BootScene,
     PreloadScene,
-    StartScene,
+    // StartScene,
     // GameScene,
 ];
 
@@ -19,6 +19,10 @@ var config = {
     width: 1920,
     height: 1080,
     scene: scenes,
+
+    // multiTexture: true,
+    enableDebug: false,
+    
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,

@@ -50,32 +50,32 @@ export default class Spots extends Phaser.Physics.Arcade.Group {
     }
     createFirstElements() {
         let data_1 = DATA[0]
-        let elem_1 = new Spot(this.scene, X_1, 500, 'spot_2')
+        let elem_1 = new Spot(this.scene, X_1, 500, 'positive_spritesheet', 'spot_2')
         elem_1.move()
         this.add(elem_1)
 
         let data_2 = DATA[1]
-        let elem_2 = new Spot(this.scene, X_2, -200, 'spot_1')
+        let elem_2 = new Spot(this.scene, X_2, -200, 'positive_spritesheet', 'spot_1')
         elem_2.move()
         this.add(elem_2)
 
         let data_3 = DATA[2]
-        let elem_3 = new Spot(this.scene, X_2, -1500, 'spot_2')
+        let elem_3 = new Spot(this.scene, X_2, -1500, 'positive_spritesheet', 'spot_2')
         elem_3.move()
         this.add(elem_3)
 
         let data_4 = DATA[3]
-        let elem_4 = new Spot(this.scene, X_2, -3030, 'spot_1')
+        let elem_4 = new Spot(this.scene, X_2, -3030, 'positive_spritesheet', 'spot_1')
         elem_4.move()
         this.add(elem_4)
 
         let data_5 = DATA[4]
-        let elem_5 = new Spot(this.scene, X_1, -3560, 'spot_2')
+        let elem_5 = new Spot(this.scene, X_1, -3560, 'positive_spritesheet', 'spot_2')
         elem_5.move()
         this.add(elem_5)
 
         let data_6 = DATA[5]
-        let elem_6 = new Spot(this.scene, X_3, -4420, 'spot_1')
+        let elem_6 = new Spot(this.scene, X_3, -4420, 'positive_spritesheet', 'spot_1')
         elem_6.move()
         this.add(elem_6)
 
@@ -96,21 +96,24 @@ export default class Spots extends Phaser.Physics.Arcade.Group {
 
 
 class Spot extends Phaser.GameObjects.Sprite {
-    constructor(scene,x,y,texture) {
-        super(scene, x, y, texture)
+    constructor(scene, x, y, texture, frame) {
+        super(scene, x, y, texture, frame)
+        this.init()
+    }
+    init() {
+        
         this.scene.add.existing(this)
         this.scene.physics.add.existing(this)
         this.body.enable = true
         // this.setScale(2)
-        this.init()
         // this.setOrigin(0.5)
         // this.scene.children.moveDown(this)
         this.alive_status = true
         // this.scene.children.bringToTop(this)
-        this.scene.events.on('start', this.move, this)
-    }
-    init() {
         this.scene.events.on('update', this.update, this)
+        this.scene.events.on('start_game', this.move, this)
+        this.scene.events.on('leave', this.move, this)
+        // console.log("init()",this)
     }
     update(timestep, dt) {
         if (this.y > 1200 && this.alive_status){
@@ -124,10 +127,10 @@ class Spot extends Phaser.GameObjects.Sprite {
         this.setVisible(status)
         this.setActive(status)
     }
-    reset(x, y, sprite) {
+    reset(x, y, frame) {
         this.x = x
         this.y = y
-        this.setTexture(sprite)
+        this.setFrame(frame)
         this.setAlive(true)
 
         // this.scene.children.bringToTop(this)

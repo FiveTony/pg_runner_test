@@ -1,4 +1,4 @@
-import Room from "@assets/scripts/classes/Room"
+import Room from "./Room.js"
 
 const BG_WIDTH = 900
 const BG_HEIGHT = 2880
@@ -12,7 +12,7 @@ export default class Rooms extends Phaser.Physics.Arcade.Group {
         this.scene = scene
 
         this.countCreated = 0
-        console.log("ROOMS")
+
         this.createFirstRoom()
         this.scene.events.on("leave", ()=>{
             // console.log("leave",this.scene.room_num);
@@ -22,9 +22,9 @@ export default class Rooms extends Phaser.Physics.Arcade.Group {
             // this.scene.children.bringToTop(this.scene.ui)
         }, this)
     }
-    createFirstRoom() {    
-        console.log("CREATEFIRSTROOM") 
+    createFirstRoom() {     
         let first_room = new Room(this.scene, WIDTH / 2 + BG_WIDTH / 2, HEIGHT, "room1")
+        // console.log(first_room.y)
         this.add(first_room)
         first_room.move()
         this.countCreated++
@@ -32,13 +32,14 @@ export default class Rooms extends Phaser.Physics.Arcade.Group {
         this.scene.count_created_scenes++
     }
     createSecondRoom() {
-        console.log("CREATESECONDROOM") 
-
         let second_room = this.getFirstDead()
         if (!second_room) {
+            // console.log("!second_room")
             second_room = new Room(this.scene, WIDTH / 2 + BG_WIDTH / 2, 0, "room2")
             this.add(second_room)
+            // console.log(second_room.y)
         } else {
+            // console.log("reset()")
             let room_sprite
             if (this.scene.room_num === 5) {
                 room_sprite = "room5"

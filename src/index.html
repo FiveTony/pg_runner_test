@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 @@include('html/_head.htm',{ "title":"Главная" })
+<style type="text/css">
+    @font-face {
+        font-family: "Monserrat-Bold";
+        src: url("assets/fonts/Montserrat-Bold.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap; 
+    }
+</style>
 <body>
     <div class="wrapper">
         <main class="landing-page" data-render-scene>
@@ -26,7 +35,7 @@
             </div>
         </main>
     </div>
-    <link href="src/assets/styles/fonts.css"/>
+    <!-- <link href="src/assets/styles/fonts.css"/> -->
 
     @@include('html/_popup-attempts.htm', {}) @@include('html/_popup-not-attempts.htm', {}) @@include('html/_js.htm',{})
 

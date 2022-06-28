@@ -26,11 +26,11 @@ export default class Borders extends Phaser.Physics.Arcade.Group {
     }
     createFirstBorders() {
         // let data_1 = DATA[0]
-        let elem_1 = new Border(this.scene, this.left_x, -2880 + HEIGHT + 25, 'border2')
+        let elem_1 = new Border(this.scene, this.left_x, -2880 + HEIGHT + 25, 'border')
         elem_1.move()
         this.add(elem_1)
         // let data_2 = DATA[0]
-        let elem_2 = new Border(this.scene, this.right_x, -2880 + HEIGHT + 25, 'border2')
+        let elem_2 = new Border(this.scene, this.right_x, -2880 + HEIGHT + 25, 'border')
         elem_2.move()
         this.add(elem_2)
         // let data_3 = DATA[0]
@@ -52,17 +52,18 @@ export default class Borders extends Phaser.Physics.Arcade.Group {
 }
 
 class Border extends Phaser.GameObjects.Sprite {
-    constructor(scene,x,y,texture) {
+    constructor(scene, x, y, texture) {
         super(scene, x, y, texture)
+        this.init()
+    }
+    init() {
         this.scene.add.existing(this)
         this.scene.physics.add.existing(this)
         this.body.enable = true
         this.alive_status = true
-        this.init()
-    }
-    init() {
         this.scene.events.on('update', this.update, this)
-        this.scene.events.on('start', this.move, this)
+        this.scene.events.on('start_game', this.move, this)
+        this.scene.events.on('leave', this.move, this)
     }
     update(timestep, dt) {
         if (this.y > 1100 && this.alive_status){

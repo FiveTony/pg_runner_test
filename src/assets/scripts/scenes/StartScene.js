@@ -1,7 +1,7 @@
 const WIDTH = 1920
 const HEIGHT = 1080
 
-import GameScene from "@assets/scripts/scenes/GameScene";
+import GameScene from "./GameScene.js";
 
 export default class StartScene extends Phaser.Scene {
   constructor() {
@@ -25,6 +25,9 @@ export default class StartScene extends Phaser.Scene {
       lineSpacing: 20,
 
   }).setOrigin(0.5)
+
+  // this.add.bitmapText(WIDTH / 2, 235, 'Monserrat-Bold', "Выберите своего персонажа", 80).setOrigin(0.5)
+
   }
   createCharacters() {
     this.add.sprite(375, 240, "charactersChoose" ,"rita_label")
@@ -37,6 +40,7 @@ export default class StartScene extends Phaser.Scene {
           hero: "rita", 
           play_num: 1
         });
+        this.scene.remove("Start")
       })
       .on(
         "pointermove",
@@ -66,6 +70,7 @@ export default class StartScene extends Phaser.Scene {
           hero: "dima", 
           play_num: 1
         });
+        this.scene.remove("Start")
       })
       .on(
         "pointermove",
@@ -94,6 +99,7 @@ export default class StartScene extends Phaser.Scene {
           hero: "musya", 
           play_num: 1
         });
+        this.scene.remove("Start")
       })
     .on(
       "pointermove",
